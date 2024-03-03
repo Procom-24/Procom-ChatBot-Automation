@@ -43,5 +43,3 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
-# Visual Studio Code settings
-.vscode/
