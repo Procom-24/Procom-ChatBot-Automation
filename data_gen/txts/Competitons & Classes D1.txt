@@ -1,0 +1,187 @@
+Here's the schedule for Room 'E1-E2-E3' on Day 1:
+- Competition 1: Speed Debugging | Time: 10:30-12:00
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'E4-E5-E6' on Day 1:
+- Competition 1: Pseudowar | Time: 10:30-12:30
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'A1-A3' on Day 1:
+- Competition 1: App Dev | Time: 10:30-01:00
+- Competition 2: App Dev | Time: 02:30 - 05:00
+
+Here's the schedule for Room 'A4-A6' on Day 1:
+- Competition 1: Web Dev | Time: 10:30-01:00
+- Competition 2: Web Dev | Time: 02:30 - 05:00
+
+Here's the schedule for Room 'A7' on Day 1:
+- Competition 1: Free | Time: Free
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'B9' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'B10' on Day 1:
+- Competition 1: Scavenger Hunt | Time: All Day
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'B11' on Day 1:
+- Competition 1: Free | Time: Free
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'C12' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'C13' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'C14 C15' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'C17' on Day 1:
+- Competition 1: Scavenger Hunt | Time: All Day
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'C16' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'C18' on Day 1:
+- Competition 1: Hackathon | Time: All day
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'C19' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'C20 ' on Day 1:
+- Competition 1: Taboo | Time: All day
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'C21 C22' on Day 1:
+- Competition 1: Hackathon | Time: All Day
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'D23 D24' on Day 1:
+- Competition 1: Photography and Reels | Time: All day
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'D25 D26 D27 D28' on Day 1:
+- Competition 1: AI Showdown | Time: 11:00 - 01:00
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'E29' on Day 1:
+- Competition 1: Free | Time: Free
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'E30' on Day 1:
+- Competition 1: Scavenger Hunt | Time: All Day
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'E31' on Day 1:
+- Competition 1: Free | Time: Free
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'E32' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'E33' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'E34' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'E35' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'Labs' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'Lab1' on Day 1:
+- Competition 1: Competitive Programming | Time: 10:30-02:00
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'Lab2' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'Lab4' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'Lab5' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: CITD | Time: 03:00-05:00
+
+Here's the schedule for Room 'Lab6' on Day 1:
+- Competition 1: AutoCad | Time: All day
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'Lab10' on Day 1:
+- Competition 1: Database Design | Time: 10:30-12:30
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'Lab8' on Day 1:
+- Competition 1: Chat Craft | Time: 10:30-02:00
+- Competition 2: CITD | Time: 03:00-05:00
+
+Here's the schedule for Room 'Lab 3 (FYP)' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'Lab 7' on Day 1:
+- Competition 1: Block chain Blitz | Time: 10:30 - 12:30
+- Competition 2: Code Sprint | Time: 02:00-05:00
+
+Here's the schedule for Room 'Lab11' on Day 1:
+- Competition 1: UI/UX | Time: 10:30-01:00
+- Competition 2: Code Sprint | Time: 02:00-05:00
+
+Here's the schedule for Room 'Lab12' on Day 1:
+- Competition 1: Database Design | Time: 10:30-12:30
+- Competition 2: Code Sprint | Time: 02:00-05:00
+
+Here's the schedule for Room 'Lab 13' on Day 1:
+- Competition 1: UI/UX | Time: 10:30-01:00
+- Competition 2: Code Sprint | Time: 02:00-05:00
+
+Here's the schedule for Room 'EWS Lab -EE' on Day 1:
+- Competition 1: Speed Soldering | Time: All day
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'MPI Lab' on Day 1:
+- Competition 1: Hardware Exhibition | Time: All Day
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'Old BCR ' on Day 1:
+- Competition 1: esports | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'EE Conference Room' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'Basketball Court' on Day 1:
+- Competition 1: Robotics Competitions | Time: All day
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'New Building' on Day 1:
+- Competition 1: Game Dev  | Time: 10:30 - 01:00
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'Masjid Ground' on Day 1:
+- Competition 1: nan | Time: nan
+- Competition 2: nan | Time: nan
+
+Here's the schedule for Room 'EE Ground' on Day 1:
+- Competition 1: Food Stalls +Seating Area | Time: nan
+- Competition 2: nan | Time: nan
