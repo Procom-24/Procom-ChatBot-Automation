@@ -1,0 +1,209 @@
+Here's the information for the 'Competitive Programming ' competition:
+- CAP Teams: 70.0
+- Lab/Room Allocated on Day 1: Lab 1, 2, 4, 5
+- Lab/Room Allocated on Day 2: Lab 1 , 2, 4 
+
+Here's the information for the 'Speed Debugging ' competition:
+- CAP Teams: 35.0
+- Lab/Room Allocated on Day 1: E1, 2, 3 
+- Lab/Room Allocated on Day 2: Lab 10, 12
+
+Here's the information for the 'Chatcraft' competition:
+- CAP Teams: 25.0
+- Lab/Room Allocated on Day 1: Lab 8 
+- Lab/Room Allocated on Day 2: Lab 8
+
+Here's the information for the 'database design' competition:
+- CAP Teams: 35.0
+- Lab/Room Allocated on Day 1: Lab 10,12
+- Lab/Room Allocated on Day 2: Lab 5, 6
+
+Here's the information for the 'Code in the dark' competition:
+- CAP Teams: 35.0
+- Lab/Room Allocated on Day 1: Lab 5, 8
+- Lab/Room Allocated on Day 2: Lab 5, 8
+
+Here's the information for the 'Game developement ' competition:
+- CAP Teams: 25.0
+- Lab/Room Allocated on Day 1: Outside Auditorium
+- Lab/Room Allocated on Day 2: Outside Auditorium
+
+Here's the information for the 'AI Showdown' competition:
+- CAP Teams: 45.0
+- Lab/Room Allocated on Day 1: D floor D25,26,27,28
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Hackathon' competition:
+- CAP Teams: 35.0
+- Lab/Room Allocated on Day 1: C22 C21
+- Lab/Room Allocated on Day 2: C22 21
+
+Here's the information for the 'Code sprint' competition:
+- CAP Teams: 70.0
+- Lab/Room Allocated on Day 1: Lab 10,11,12,13
+- Lab/Room Allocated on Day 2: Lab 11,12,13
+
+Here's the information for the 'Web Developement' competition:
+- CAP Teams: 35.0
+- Lab/Room Allocated on Day 1: A4,5,6
+- Lab/Room Allocated on Day 2: A4,5,6
+
+Here's the information for the 'Block chain' competition:
+- CAP Teams: 35.0
+- Lab/Room Allocated on Day 1: Lab 6,7
+- Lab/Room Allocated on Day 2: Lab 7
+
+Here's the information for the 'UI UX' competition:
+- CAP Teams: 35.0
+- Lab/Room Allocated on Day 1: Lab 11,13
+- Lab/Room Allocated on Day 2: Lab11, 13
+
+Here's the information for the 'App Developement ' competition:
+- CAP Teams: 35.0
+- Lab/Room Allocated on Day 1: A1,2,3
+- Lab/Room Allocated on Day 2: A1, 2, 3
+
+Here's the information for the 'Pseudowar' competition:
+- CAP Teams: 35.0
+- Lab/Room Allocated on Day 1: E4,5,6
+- Lab/Room Allocated on Day 2: E4,5,6
+
+Here's the information for the 'Capture the Flag' competition:
+- CAP Teams: 45.0
+- Lab/Room Allocated on Day 1: nan
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Autocad' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: Lab11
+- Lab/Room Allocated on Day 2: Lab11
+
+Here's the information for the 'Speed Soldering' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: MPI Lab
+- Lab/Room Allocated on Day 2: MPI Lab
+
+Here's the information for the 'Project Exibition' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: nan
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Robowar' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: nan
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Robo sumo' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: nan
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Robo soccer' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: nan
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Line following robot' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: nan
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'FIFA ' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: nan
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'PUBG ' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: nan
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'TEKKEN ' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: nan
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Chess' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: D24
+- Lab/Room Allocated on Day 2: D24
+
+Here's the information for the 'photography ' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: D22
+- Lab/Room Allocated on Day 2: D22
+
+Here's the information for the 'reels ' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: D23
+- Lab/Room Allocated on Day 2: D23
+
+Here's the information for the 'scavenger hunt' competition:
+- CAP Teams: nan
+- Lab/Room Allocated on Day 1: Fourth Floor
+- Lab/Room Allocated on Day 2: Fourth Floor
+
+Here's the information for the 'Speed Programming' competition:
+- CAP Teams: 105.0
+- Lab/Room Allocated on Day 1: Lab 1,2,3,4
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Speed Debugging' competition:
+- CAP Teams: 50.0
+- Lab/Room Allocated on Day 1: Lab 1,2,3,4
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'BlockChain' competition:
+- CAP Teams: 40.0
+- Lab/Room Allocated on Day 1: R1(E1,E2) R2(Lab 7)
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Pseudowar' competition:
+- CAP Teams: 40.0
+- Lab/Room Allocated on Day 1: E1,E2
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Data Science' competition:
+- CAP Teams: 40.0
+- Lab/Room Allocated on Day 1: R1(Lab 7) R2(E1,E2)
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Game Development' competition:
+- CAP Teams: 50.0
+- Lab/Room Allocated on Day 1: B9
+- Lab/Room Allocated on Day 2: Registration can exceed since rooms are available.
+
+Here's the information for the 'Mobile Development' competition:
+- CAP Teams: 50.0
+- Lab/Room Allocated on Day 1: B10, B11
+- Lab/Room Allocated on Day 2: Registration can exceed since rooms are available.
+
+Here's the information for the 'Web Development' competition:
+- CAP Teams: 50.0
+- Lab/Room Allocated on Day 1: R1(Lab 3,4), R2(Lab 10)
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Code in the dark' competition:
+- CAP Teams: 25.0
+- Lab/Room Allocated on Day 1: R1(Lab 10),R2(Lab 10)
+- Lab/Room Allocated on Day 2: Registration can exceed since Lab is available.
+
+Here's the information for the 'UI/UX' competition:
+- CAP Teams: 25.0
+- Lab/Room Allocated on Day 1: Lab 6
+- Lab/Room Allocated on Day 2: nan
+
+Here's the information for the 'Hackathon' competition:
+- CAP Teams: 25.0
+- Lab/Room Allocated on Day 1: A6, A7
+- Lab/Room Allocated on Day 2: Registration can exceed since rooms are available.
+
+Here's the information for the 'DB Design' competition:
+- CAP Teams: 30.0
+- Lab/Room Allocated on Day 1: C 15,16
+- Lab/Room Allocated on Day 2: Registration can exceed since rooms are available.
+
+Here's the information for the 'Math Olympiad' competition:
+- CAP Teams: 25.0
+- Lab/Room Allocated on Day 1: R1(Lab 6, 10) R2(Lab 11)
+- Lab/Room Allocated on Day 2: nan
