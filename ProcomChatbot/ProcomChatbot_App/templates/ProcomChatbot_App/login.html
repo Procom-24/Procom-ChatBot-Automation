@@ -1,0 +1,97 @@
+{% extends 'ProcomChatbot_App/base.html' %}
+{% load static %}
+
+{% block title %}
+  Login
+{% endblock %}
+
+{% block extra_headers %}
+  <style>
+    body {
+      min-height: 100vh;
+      max-height: max-content;
+    }
+  </style>
+  <!-- VANTA.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+{% endblock %}
+{% block navbar %}
+
+{% endblock %}
+{% block content %}
+  <div class="d-flex" style="min-height:100vh; max-height: max-content;">
+    <div class="d-none d-lg-flex flex-column col-lg-7 p-5" style="height: max-content;">
+      <div class="mb-5" style="min-height: 7rem;">
+        <a class="navbar-brand d-flex justify-content-start" href="{% url 'ProcomChatbot_App:chatbot' %}"><img src="{% static 'ProcomChatbot_App/logo_2.png' %}" alt="Logo" width="auto" height="80" class="d-inline-block align-text-top" /></a>
+      </div>
+      <div class="display-1 p-3 fw-semibold text-start user-select-none">Discover PROCOM Events Instantly!</div>
+      <div class="p-3 mt-4">
+        <p class="fs-4 text-start fw-light col-10 user-select-none">Unlock the full potential of <b>PROCOM</b> through our intuitive chatbot, your gateway to seamless event exploration and instant information!</p>
+      </div>
+    </div>
+
+    <div class="bg-body-tertiary d-flex justify-content-center align-items-center col">
+      <div class="bg-body-tertiary border rounded p-4" style="height: max-content; margin-bottom: 5rem;">
+        <div class="col text-body">
+          <div class="fs-3 fw-bold px-3 pt-3 text-body">Welcome Back</div>
+          <div class="fs-6 px-3 fw-semibold">Please enter your username and password</div>
+        </div>
+
+        <form action="{% url 'ProcomChatbot_App:user_login' %}" method="post">
+          {% csrf_token %}
+          <div class="col mt-4 fs-6">
+            <div class="d-flex flex-column justify-content-center px-3 py-2">
+              <label for="id_username" class="mb-2 fs-6">Username</label>
+              {{ login_form.username }}
+            </div>
+            <div class="d-flex flex-column justify-content-center px-3 py-2">
+              <label for="id_password" class="mb-2 fs-6">Password</label>
+              {{ login_form.password }}
+            </div>
+          </div>
+          {% if login_form.errors %}
+            <div class="alert alert-warning m-3 col" role="alert" style="font-size: 0.7rem;">
+              <div>Fix the following issue(s)</div>
+              {% for field, errors in login_form.errors.items %}
+                {% if field == '__all__' %}
+                  {{ errors }}
+                {% else %}
+                  {% for error in errors %}
+                    <li>
+                      <span class="fw-semibold me-2">{{ field }}:</span>{{ error }}
+                    </li>
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+          <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-dark m-2 col-11 border">Login</button>
+          </div>
+        </form>
+
+        <div class="px-3 py-1 mt-3 fs-6">
+          Don't have an account? <a href="{% url 'ProcomChatbot_App:user_register' %}" class="link-offset-2 text-body"><span class="fw-semibold">Click here</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    VANTA.FOG({
+      el: 'body',
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.0,
+      minWidth: 200.0,
+      highlightColor: 0x8113dc,
+      baseColor: 0x8113dc,
+      midtoneColor: 0x0793cc,
+      lowlightColor: 0x0793cc,
+      blurFactor: 0.52,
+      speed: 2.6,
+      zoom: 1.2
+    })
+  </script>
+{% endblock %}

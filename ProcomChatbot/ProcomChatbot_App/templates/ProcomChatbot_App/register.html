@@ -1,0 +1,111 @@
+{% extends 'ProcomChatbot_App/base.html' %}
+{% load static %}
+
+{% block title %}
+  Register
+{% endblock %}
+
+{% block extra_headers %}
+  <style>
+    body {
+      min-height: 100vh;
+      max-height: max-content;
+    }
+  </style>
+  <!-- VANTA.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+{% endblock %}
+
+{% block navbar %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="d-flex" style="min-height:100vh; max-height: max-content;">
+    <div class="d-none d-lg-flex flex-column col-lg-6 p-5" style="height: max-content;">
+      <div class="mb-1" style="min-height: 3rem;">
+        <a class="navbar-brand d-flex justify-content-start" href="{% url 'ProcomChatbot_App:chatbot' %}"><img src="{% static 'ProcomChatbot_App/logo_2.png' %}" alt="Logo" width="auto" height="80" class="d-inline-block align-text-top" /></a>
+      </div>
+      <div class="display-1 p-3 fw-semibold text-start user-select-none">Catch the PROCOM Pulse Instantly!</div>
+      <div class="p-3 mt-4">
+        <p class="fs-4 text-start fw-light col-10 user-select-none">
+          Embark on an exciting journey with <b>PROCOM</b> as you register today. Gain access to exclusive event updates, engaging discussions, and a vibrant community of innovators. Your registration is your gateway to an immersive experience, tailored just for you!"
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-body-tertiary d-flex justify-content-center align-items-center col">
+      <div class="bg-body-tertiary border rounded p-4 text-body" style="height: max-content; width: 30rem; margin: 3rem 0;">
+        <div class="col">
+          <div class="fs-3 fw-bold px-3 pt-3">Register New Account</div>
+          <div class="fs-6 px-3 fw-semibold">Please provide your details to create and access your account.</div>
+        </div>
+
+        <form action="{% url 'ProcomChatbot_App:user_register' %}" method="post">
+          {% csrf_token %}
+          <div class="col mt-3">
+            <div class="d-flex flex-column justify-content-center px-3 py-2">
+              <label for="id_username" class="mb-2 fs-6">Username</label>
+              <div style="font-size: 0.7rem; margin-bottom: 7px;">{{ register_form.username.help_text }}</div>
+              {{ register_form.username }}
+            </div>
+            <div class="d-flex flex-column justify-content-center px-3 py-2">
+              <label for="id_email" class="mb-2 fs-6">Email</label>
+              {{ register_form.email }}
+            </div>
+            <div class="d-flex flex-column justify-content-center px-3 py-2">
+              <label for="id_password1" class="mb-2 fs-6">Password</label>
+              <div style="font-size: 0.7rem;">{{ register_form.password1.help_text }}</div>
+              {{ register_form.password1 }}
+            </div>
+            <div class="d-flex flex-column justify-content-center px-3 py-2">
+              <label for="id_password2" class="mb-2 fs-6">Confirm Password</label>
+              {{ register_form.password2 }}
+            </div>
+          </div>
+          {% if register_form.errors %}
+            <div class="alert alert-warning m-3" role="alert" style="font-size: 0.7rem;">
+              <div>Fix the following issue(s)</div>
+              {% for field, errors in register_form.errors.items %}
+                {% if field == '__all__' %}
+                  {{ errors }}
+                {% else %}
+                  {% for error in errors %}
+                    <li>
+                      <span class="fw-semibold me-2">{{ field }}:</span>{{ error }}
+                    </li>
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+          <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-dark m-2 col-11">Register</button>
+          </div>
+        </form>
+
+        <div class="fs-6 px-3 py-1 mt-3">
+          Already have an account? <a href="{% url 'ProcomChatbot_App:user_login' %}" class="link-offset-2 text-body"><span class="fw-semibold">Click here</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    VANTA.FOG({
+      el: 'body',
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.0,
+      minWidth: 200.0,
+      highlightColor: 0x8113dc,
+      baseColor: 0x8113dc,
+      midtoneColor: 0x0793cc,
+      lowlightColor: 0x0793cc,
+      blurFactor: 0.52,
+      speed: 2.6,
+      zoom: 1.2
+    })
+  </script>
+{% endblock %}

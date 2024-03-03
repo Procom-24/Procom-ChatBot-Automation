@@ -1,0 +1,45 @@
+.robo-pfp {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    background-image: linear-gradient(180deg, #8113DC, #0793CC);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.user-pfp {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.chatbox-div {
+    position: fixed;
+    bottom: 0px;
+    z-index: 1030;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.DBResume {
+    cursor: pointer;
+}
+
+.DBResume input[type="file"] {
+    display: none;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+}
+.form-control:disabled {
+    background-color: var(--bs-dark-bg-subtle)!important;
+    opacity: 1;
+}

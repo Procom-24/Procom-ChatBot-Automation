@@ -1,0 +1,210 @@
+{% extends 'ProcomChatbot_App/base.html' %} {% load static %} {% block title %}
+  PROCOM Chatbot
+{% endblock %} {% block extra_headers %}
+  <link rel="stylesheet" href="{% static 'ProcomChatbot_App/chatbot.css' %}" />
+{% endblock %}
+{% block content %}
+  <div class="d-flex justify-content-center bg-dark-subtle" style="
+    min-height: 81vh;
+    max-height: max-content;
+    position: relative !important;
+    margin-top: 8rem;
+  ">
+    <div id="convo-div" class="col-11 col-lg-8 position-relative" style="margin-bottom: 9rem; height: max-content">
+     
+    </div>
+
+    <div class="chatbox-div bg-dark-subtle border-top col-12">
+      <form id="chat-form" class="d-flex justify-content-center col-11 col-lg-9">
+        {% csrf_token %}
+        <div class="col-10 me-2">
+          <input type="text" id="user-input" class="form-control" name="query" placeholder="Ask any question" required style="height: 2.5rem" />
+        </div>
+        <button id="submitButton" class="btn btn-dark"><i class="bi bi-send-fill"></i></button>
+      </form>
+    </div>
+  </div>
+   <!-- Modal -->
+   <div class="modal fade" id="errorModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-danger-subtle border border-danger">
+        <div class="modal-header border border-top-0 border-end-0 border-start-0 border-danger">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Oops! Something went wrong</h1>
+        </div>
+        <div class="modal-body">
+          <div>It appears there was an unexpected error on the server. We apologize for any inconvenience caused.</div>
+          <div class="mt-3 fs-">Error Code: 329DF0X</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let re_flag=false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const chatForm = document.querySelector('#chat-form')
+      chatForm.addEventListener('submit', (e) => {
+        sendMessage(e)
+      })
+    })
+    
+    function messageInputVisibility(disabled = true, value) {
+      const messageInput = document.querySelector('#user-input')
+      messageInput.disabled = disabled
+      messageInput.value = value
+      document.getElementById('submitButton').disabled = disabled;
+      re_flag=disabled;
+    }
+    
+    function sendMessage(event) {
+      event.preventDefault()
+      if (re_flag){
+        return;
+      }
+    
+      // Get the message input value
+      const messageInput = document.querySelector('#user-input')
+      const message = messageInput.value.trim()
+      const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value // Using csrf token for posting purpose
+    
+      if (message !== '') {
+        messageInputVisibility(true, 'Waiting for bot response ...')
+    
+        // Prepare the data to be sent
+        const data = {
+          user_query: message
+        }
+    
+        const convoDiv = document.querySelector('#convo-div')
+    
+        // Adding the new message of user to the website
+        let newMessageDiv = document.createElement('div')
+        newMessageDiv.innerHTML = `
+            <div class="d-flex p-3 mb-2" style="height: max-content;">
+              <div class="d-flex justify-content-center p-2">
+                <div class="user-pfp border bg-black text-light">
+                  <i class="bi bi-person-fill"></i>
+                </div>
+              </div>
+              <div class="col px-3 py-2">
+                <div class="lead fw-semibold mt-1 mb-2">{{ request.user.username }}</div>
+                <p class="fs-6">${message}</p>
+              </div>
+            </div>`
+        convoDiv.append(newMessageDiv)
+        scrollToBottom()
+    
+        // Send an API request to the server to fetch response
+        fetch('/api/send-message/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken
+          },
+          body: JSON.stringify(data)
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status === 200) {
+              // Render the new response to the website
+              let newResponseDiv = document.createElement('div')
+              newResponseDiv.innerHTML = `
+                  <div class="d-flex p-3 mb-2" style="height: max-content;">
+                    <div class="d-flex justify-content-center p-2">
+                      <div class="robo-pfp text-light">
+                        <i class="bi bi-robot"></i>
+                      </div>
+                    </div>
+                    <div class="col px-3 py-2">
+                      <div class="lead fw-semibold mt-1 mb-2">Procom Chatbot</div>
+                      <p class="bot-response-div fs-6"></p>
+                    </div>
+                  </div>`
+              convoDiv.append(newResponseDiv)
+              scrollToBottom()
+    
+              let divCollection = document.querySelectorAll('.bot-response-div')
+    
+              // Check if there are any elements found
+              if (divCollection.length > 0) {
+                let chatbotResponse = data.response
+                // Get the last element by accessing it using length - 1
+                var lastElement = divCollection[divCollection.length - 1]
+    
+                // Split the response into an array of lines
+                const lines = chatbotResponse.split('\n')
+    
+                let lineIndex = 0
+                let wordIndex = 0
+    
+                function insertWord() {
+                  // Check if there are still lines to insert
+                  if (lineIndex < lines.length) {
+                    // Split the current line into an array of words
+                    const words = lines[lineIndex].split(' ')
+    
+                    // Check if there are still words to insert
+                    if (wordIndex < words.length) {
+                      // Create a text node with the current word
+                      var wordNode = document.createTextNode(words[wordIndex] + ' ')
+    
+                      // Append the text node to the last node
+                      lastElement.appendChild(wordNode)
+    
+                      // Increment the word index
+                      wordIndex++
+                    } else {
+                      // If all words in the line have been inserted, move to the next line
+                      lineIndex++
+                      wordIndex = 0
+    
+                      // Create a line break element
+                      var br = document.createElement('br')
+                      lastElement.appendChild(br)
+                    }
+                  } else {
+                    // If all lines have been inserted, clear the interval
+                    clearInterval(insertInterval)
+                    messageInputVisibility(false, '')
+                  }
+                  scrollToBottom()
+                }
+    
+                // Call the insertWord function initially
+                insertWord()
+    
+                scrollToBottom()
+                var insertInterval = setInterval(insertWord, 50)
+              } else {
+                // Handle case where no elements are found
+                console.log("No elements found with the class name 'bot-response-div'.")
+              }
+            } else {
+              render_error_message()
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error)
+          })
+      }
+    }
+    
+    function scrollToBottom() {
+      window.scrollTo(0, document.body.scrollHeight)
+    }
+    function render_error_message() {
+      const chatForm = document.querySelector('#chat-form')
+      chatForm.innerHTML = `<div>Server Log Error</div>`
+    
+      var myModal = document.getElementById('errorModal')
+      myModal.classList.add('show') // Show the modal
+      myModal.style.display = 'block' // Display the modal
+      myModal.setAttribute('aria-hidden', 'false') // Ensure accessibility
+      document.body.classList.add('modal-open')
+    
+      var backdrop = document.createElement('div')
+      backdrop.classList.add('modal-backdrop', 'fade', 'show')
+      document.body.appendChild(backdrop)
+    }
+  </script>
+{% endblock %}
