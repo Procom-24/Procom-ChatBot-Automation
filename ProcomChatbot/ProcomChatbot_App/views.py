@@ -16,7 +16,7 @@ import time
 
 
 # Setting OpenAI variables
-OPEN_AI_API_KEY = "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"
+OPEN_AI_API_KEY = "API KEY"
 embedding_model = "text-embedding-ada-002"
 openai_client = OpenAI(api_key=OPEN_AI_API_KEY)
 
