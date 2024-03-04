@@ -14,15 +14,17 @@ from django.http import StreamingHttpResponse
 from django.utils import timezone
 import time
 
+from .credentials import OPENAI_API_KEY
+
 
 # Setting OpenAI variables
-OPEN_AI_API_KEY = "API KEY"
 embedding_model = "text-embedding-ada-002"
-openai_client = OpenAI(api_key=OPEN_AI_API_KEY)
+openai_client = OpenAI(api_key=OPENAI_API_KEY)
 
-# This is OpenAI embedding function
+# This is OpenAI embedd
+# ing function
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
-    api_key=OPEN_AI_API_KEY,
+    api_key=OPENAI_API_KEY,
     model_name=embedding_model,
 )
 
@@ -138,18 +140,18 @@ def send_message(request):
                 name="Procom_Competitions", embedding_function=openai_ef
             )
 
-            # embedded_query = get_embedding(user_query, model=embedding_model)
-            # result = collection.query(
-            #     query_embeddings=embedded_query,
-            #     n_results=3,
-            # )
-            # query_set = result["documents"][0]
-            # query_respond = "\n".join(str(item) for item in query_set)
-            # bot_response = ask_openai(user_query, query_respond)
+            embedded_query = get_embedding(user_query, model=embedding_model)
+            result = collection.query(
+                query_embeddings=embedded_query,
+                n_results=3,
+            )
+            query_set = result["documents"][0]
+            query_respond = "\n".join(str(item) for item in query_set)
+            bot_response = ask_openai(user_query, query_respond)
 
-            # data["response"] = bot_response
-            t = collection.query(query_texts=user_query)
-            data["response"] = t["documents"][0][0]
+            data["response"] = bot_response
+            # t = collection.query(query_texts=user_query)
+            data["response"] = bot_response
             data["status"] = 200
             data["error"] = None
 
@@ -159,43 +161,50 @@ def send_message(request):
     return Response(data)
 
 
-# OPEN_AI_API_KEY = "GONNA ADD THINSG LATER"
-# embedding_model = "text-embedding-ada-002"
-# client = OpenAI(api_key=OPEN_AI_API_KEY)
-# openai_ef = embedding_functions.OpenAIEmbeddingFunction(
-#     api_key=OPEN_AI_API_KEY,
-#     model_name=embedding_model,
-# )
+# OPENAI_API_KEY = "GONNA ADD THINSG LATER"
+embedding_model = "text-embedding-ada-002"
+client = OpenAI(api_key=OPENAI_API_KEY)
+openai_ef = embedding_functions.OpenAIEmbeddingFunction(
+    api_key=OPENAI_API_KEY,
+    model_name=embedding_model,
+)
 
 
-# def ask_openai(user_query, query_respond):
-#     system_message = f"""
-#     Your task is to answer user questions based solely
-#     on the provided information.You can not answer the
-#     user query from your knowledge. If the user's query is
-#     within the scope of the provided information, you
-#     will provide an answer. However, if the query is not
-#     relevant to the information provided, you will respond
-#     with: "Your query seems like it's out of my knowledge."
-#     Below is the available information:
-#     INFORMATION
-#     ####
-#     {query_respond}
-#     ####
-#     """
-#     messages = [
-#         {"role": "system", "content": system_message},
-#         {"role": "user", "content": user_query},
-#     ]
+def ask_openai(user_query, query_respond):
+    system_message = f"""
+    You are an informative chatbot specifically made for 
+        an event called PROCOM. Your task is to answer user 
+        questions based solely on the provided information. You can not answer the 
+        user query from your knowledge. If the user's query is
+        within the scope of the provided information, you 
+        will provide an answer. However, if the query is not 
+        relevant to the information provided, you will politely inform the user
+        that it's out of your knowledge.
+        Below is the available information:
+        There are a total of 19 competitions listed below in Procom:
+        AI Showdown, App Dev, Blockchain Blitz, Chatcraft, Code In The Dark, 
+        Code Sprint, Competitive Programming, CTF, Database Design, Game Dev,
+        Hackathon, LFR Rules, Psuedo War, ROBO SOCCER Rules, ROBO SUMO Rules, 
+        ROBO WAR(Light Weight) Rules, Speed Debugging, UIUX, and Web Dev.
+        INFORMATION  
+        ####
+        {query_respond}
+        ####
+        Your response must be easy for user to understand.
+    """
+    messages = [
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": user_query},
+    ]
 
-#     response = client.chat.completions.create(
-#         model="gpt-3.5-turbo", messages=messages, temperature=0
-#     )
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo", messages=messages, temperature=0
+    )
 
-#     response_message = response.choices[0].message.content
-#     return response_message
+    response_message = response.choices[0].message.content
+    return response_message
 
 
-# def get_embedding(text, model=embedding_model):
-#     text = text.replace("\n", " ")
-#     return client.embeddings.create(input=[text], model=model).data[0].embedding
+def get_embedding(text, model=embedding_model):
+    text = text.replace("\n", " ")
+    return client.embeddings.create(input=[text], model=model).data[0].embedding

@@ -18,6 +18,7 @@ build/
 
 # Python virtual environments
 venv/
+.venv/
 env/
 .pipenv/
 
@@ -43,3 +44,4 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
+credentials.py
