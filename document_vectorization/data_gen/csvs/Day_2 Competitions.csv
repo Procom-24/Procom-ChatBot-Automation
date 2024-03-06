@@ -1,0 +1,64 @@
+Rooms,Competitions,Time,Day
+E1,Free,Free,2
+E3,Free,Free,2
+E2,Free,Free,2
+E4,Pseudowar,09:00 - 11:00,2
+E5,Pseudowar,09:00 - 11:00,2
+E6,Pseudowar,09:00 - 11:00,2
+A1,App Dev ,09:00 - 01:00,2
+A2,App Dev ,09:00 - 01:00,2
+A3,App Dev ,09:00 - 01:00,2
+A4,Web Dev,09:00 - 01:00,2
+A5,Web Dev,09:00 - 01:00,2
+A6,Web Dev,09:00 - 01:00,2
+A7,FREE,FREE,2
+B9,FREE,FREE,2
+B10,FREE,FREE,2
+B11,FREE,FREE,2
+C12,FREE,FREE,2
+C13,FREE,FREE,2
+C14,CTF,All day,2
+C15,CTF,All day,2
+C17,CTF,All day,2
+C16,CTF,All day,2
+C18,FREE,FREE,2
+C19,FREE,FREE,2
+C21 ,Hackathon,09:00 - 12:00,2
+C22,Hackathon,09:00 - 12:00,2
+D23,FREE,FREE,2
+D24,FREE,FREE,2
+D25,CTF,09:00 - 12:30,2
+D26,CTF,09:00 - 12:30,2
+D27,CTF,09:00 - 12:30,2
+D28,CTF,09:00 - 12:30,2
+E29,FREE,FREE,2
+E30,FREE,FREE,2
+E31,FREE,FREE,2
+E32,FREE,FREE,2
+E33,FREE,FREE,2
+E34,FREE,FREE,2
+E35,FREE,FREE,2
+Lab1,Competitive Programming,09:00 - 12:30,2
+Lab2,Competitive Programming,09:00 - 12:30,2
+Lab4,Competitive Programming,09:00 - 12:30,2
+Lab5,AI Showdown,09:00 - 11:30,2
+Lab6,AI Showdown,09:00 - 11:30,2
+Lab10,Speed Debugging,02:00 - 04:00,2
+Lab8,Chat Craft,09:00 - 12:00,2
+Lab8,CITD,02:00 - 04:00,2
+Lab 3 (FYP),FREE,FREE,2
+Lab 7,Blockchain Blitz,09:00 - 11:00,2
+Lab7,CITD,02:00 - 04:00,2
+Lab11,Code Sprint,09:00 - 01:00,2
+Lab11,UI UX ,02:00 - 04:00,2
+Lab12,Code Sprint,09:00 - 01:00,2
+Lab12,Speed Debugging,02:00 - 04:00,2
+Lab 13,Code Sprint,09:00 - 01:00,2
+Lab 13,UI/UX,02:00 - 04:00,2
+MPI Lab,Speed Soldering,All Day,2
+Old BCR ,esports,All day,2
+EE Conference Room,esports,All day,2
+Basketball Court,Robotics Competitions,All day,2
+New Building,Game Dev ,09:30 - 12:00,2
+Masjid Ground,FREE,FREE,2
+EE Ground,Food Stalls +Seating Area,All day,2
