@@ -16,8 +16,15 @@ import time
 
 from .credentials import OPENAI_API_KEY
 
+from django.contrib.sessions.models import Session
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+
 # Setting OpenAI variables
-database_name = "procom_dataset123"
+database_name = "procom_coll"
 embedding_model = "text-embedding-ada-002"
 openai_client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -126,36 +133,87 @@ def user_register(request):
 
 # API
 @api_view(["POST"])
+@ensure_csrf_cookie
 def send_message(request):
-    data = {"response": None, "status": 403, "error": "Someting went wrong."}
+    data = {"response": None, "status": 403, "error": "Something went wrong."}
 
-    # Create a JsonResponse object with the JSON data
-    if request.method == "POST":
+    if request.user.is_authenticated and request.method == "POST":
         received_data = request.data
         user_query = received_data["user_query"]
-        try:
-            chroma_client = chromadb.Client()
-            chroma_client = chromadb.PersistentClient(path="media/Procom/database/")
-            collection = chroma_client.get_collection(
-                name=database_name, embedding_function=openai_ef
-            )
 
-            embedded_query = get_embedding(user_query, model=embedding_model)
-            result = collection.query(
-                query_embeddings=embedded_query,
-                n_results=2,
-            )
-            query_set = result["documents"][0]
-            query_respond = "\n".join(str(item) for item in query_set)
-            bot_response = ask_openai(user_query, query_respond)
+        # try:
+        # Retrieve or create a user-specific session
+        session_key = request.session.session_key
 
-            data["response"] = bot_response
-            data["status"] = 200
-            data["error"] = None
-        except:
-            pass  # Already handled
+        if not session_key:
+            request.session.create()
+            session_key = request.session.session_key
 
+        # Retrieve or create conversation history in the session
+        # conversation_history = request.session.get("conversation_history", [])
+        # conversation_history.append(user_query)
+        # request.session["conversation_history"] = conversation_history
+
+        # Rest of your code for querying the database and asking OpenAI
+        chroma_client = chromadb.Client()
+        chroma_client = chromadb.PersistentClient(path="media/Procom/database/")
+        collection = chroma_client.get_collection(
+            name=database_name, embedding_function=openai_ef
+        )
+
+        embedded_query = get_embedding(user_query, model=embedding_model)
+        result = collection.query(
+            query_embeddings=embedded_query,
+            n_results=2,
+        )
+        query_set = result["documents"][0]
+        query_respond = "\n".join(str(item) for item in query_set)
+        bot_response = ask_openai(request, user_query, query_respond)
+
+        data["response"] = bot_response
+        data["status"] = 200
+        data["error"] = None
+        # except Exception as e:
+        #     data["error"] = str(e)
+        print(
+            Session.objects.get(session_key=session_key)
+            .get_decoded()
+            .get("conversation_history", [])
+        )
     return Response(data)
+
+
+# @api_view(["POST"])
+# def send_message(request):
+#     data = {"response": None, "status": 403, "error": "Someting went wrong."}
+
+#     # Create a JsonResponse object with the JSON data
+#     if request.method == "POST":
+#         received_data = request.data
+#         user_query = received_data["user_query"]
+#         try:
+#             chroma_client = chromadb.Client()
+#             chroma_client = chromadb.PersistentClient(path="media/Procom/database/")
+#             collection = chroma_client.get_collection(
+#                 name=database_name, embedding_function=openai_ef
+#             )
+
+#             embedded_query = get_embedding(user_query, model=embedding_model)
+#             result = collection.query(
+#                 query_embeddings=embedded_query,
+#                 n_results=2,
+#             )
+#             query_set = result["documents"][0]
+#             query_respond = "\n".join(str(item) for item in query_set)
+#             bot_response = ask_openai(user_query, query_respond)
+
+#             data["response"] = bot_response
+#             data["status"] = 200
+#             data["error"] = None
+#         except:
+#             pass  # Already handled
+
+# return Response(data)
 
 
 # OPENAI_API_KEY = "GONNA ADD THINSG LATER"
@@ -167,9 +225,9 @@ openai_ef = embedding_functions.OpenAIEmbeddingFunction(
 )
 
 
-def ask_openai(user_query, query_respond):
+def ask_openai(request, user_query, query_respond):
     system_message = f"""
-    You are a friendly, and informative chatbot specifically made for 
+        You are a friendly, and informative chatbot specifically made for 
         an event called PROCOM. Your task is to answer user 
         questions based solely on the provided information. You can not answer the 
         user query from your knowledge. If the user's query is
@@ -191,14 +249,29 @@ def ask_openai(user_query, query_respond):
     """
     messages = [
         {"role": "system", "content": system_message},
-        {"role": "user", "content": user_query},
     ]
 
+    # After obtaining the response from OpenAI, update the conversation history
+    session_key = request.session.session_key
+    conversation_history = (
+        Session.objects.get(session_key=session_key)
+        .get_decoded()
+        .get("conversation_history", [])
+    )
+
+    for chat in conversation_history:
+        messages.append({"role": "assistant", "content": chat})
+
+    messages.append(
+        {"role": "user", "content": user_query},
+    )
     response = client.chat.completions.create(
         model="gpt-3.5-turbo", messages=messages, temperature=0
     )
 
     response_message = response.choices[0].message.content
+    conversation_history.append(response_message)
+    request.session["conversation_history"] = conversation_history
     return response_message
 
 
