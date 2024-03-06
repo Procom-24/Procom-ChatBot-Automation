@@ -17,7 +17,7 @@ import time
 from .credentials import OPENAI_API_KEY
 
 # Setting OpenAI variables
-database_name = "procom_dataset"
+database_name = "procom_dataset123"
 embedding_model = "text-embedding-ada-002"
 openai_client = OpenAI(api_key=OPENAI_API_KEY)
 

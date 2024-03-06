@@ -27,8 +27,13 @@ SECRET_KEY = "django-insecure-lwq&lgxpbt_-)p%1tt)+3do)7o)$5*rbv$xn%#7+=yw1bj6-o4
 # DEBUG = False
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
-
+ALLOWED_HOSTS = ["*"]
+# SECURE_HSTS_SECONDS = 31536000  # 1 year in seconds
+# SECURE_SSL_REDIRECT = True  # Redirect all HTTP requests to HTTPS
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
 
 # Application definition
 
