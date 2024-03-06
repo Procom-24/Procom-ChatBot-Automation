@@ -16,8 +16,8 @@ import time
 
 from .credentials import OPENAI_API_KEY
 
-
 # Setting OpenAI variables
+database_name = "procom_dataset"
 embedding_model = "text-embedding-ada-002"
 openai_client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -34,7 +34,7 @@ def chatbot(request):
         chroma_client = chromadb.Client()
         chroma_client = chromadb.PersistentClient(path="media/Procom/database/")
         collection = chroma_client.get_collection(
-            name="Procom_Competitions", embedding_function=openai_ef
+            name=database_name, embedding_function=openai_ef
         )
     except:
         return redirect("ProcomChatbot_App:error_page")
@@ -136,25 +136,22 @@ def send_message(request):
         try:
             chroma_client = chromadb.Client()
             chroma_client = chromadb.PersistentClient(path="media/Procom/database/")
-            collection = chroma_client.get_or_create_collection(
-                name="Procom_Competitions", embedding_function=openai_ef
+            collection = chroma_client.get_collection(
+                name=database_name, embedding_function=openai_ef
             )
 
             embedded_query = get_embedding(user_query, model=embedding_model)
             result = collection.query(
                 query_embeddings=embedded_query,
-                n_results=3,
+                n_results=2,
             )
             query_set = result["documents"][0]
             query_respond = "\n".join(str(item) for item in query_set)
             bot_response = ask_openai(user_query, query_respond)
 
             data["response"] = bot_response
-            # t = collection.query(query_texts=user_query)
-            data["response"] = bot_response
             data["status"] = 200
             data["error"] = None
-
         except:
             pass  # Already handled
 
@@ -172,7 +169,7 @@ openai_ef = embedding_functions.OpenAIEmbeddingFunction(
 
 def ask_openai(user_query, query_respond):
     system_message = f"""
-    You are an informative chatbot specifically made for 
+    You are a friendly, and informative chatbot specifically made for 
         an event called PROCOM. Your task is to answer user 
         questions based solely on the provided information. You can not answer the 
         user query from your knowledge. If the user's query is
