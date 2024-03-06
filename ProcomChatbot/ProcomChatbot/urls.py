@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/jf9sanmcvif9ghk3785jvi83n239$saj392k(sdvnsimvm,30JK28cv2bv5amvm2mios/', admin.site.urls),
     path("", include("ProcomChatbot_App.urls")),
 ]
 
